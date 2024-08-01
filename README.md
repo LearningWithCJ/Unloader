@@ -1,5 +1,5 @@
 # Unloader
 Advanced windows unloader using socket (UDP)
 
-command>
+# Server Command
 python unloader.py --server -i {IP} -p {PORT}
