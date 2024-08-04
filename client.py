@@ -7,8 +7,8 @@ import time
 
 
 
-IP = ''  #IP
-PORT = 0 #PORT
+IP = ''   #IP
+PORT = 0  #PORT
 SOC = None
 formats = [# images
             ".png", ".apng",
